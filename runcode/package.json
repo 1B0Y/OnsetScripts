@@ -1,7 +1,7 @@
 {
-    "author": "1B0Y @ summitroleplay.com",
-    "version": "1.0",
-    "server_scripts": [
-        "runcode_s.lua"
-    ]
+	"author": "1B0Y @ summitroleplay.com",
+	"version": "1.0",
+	"server_scripts": [
+		"runcode_s.lua"
+	]
 }
