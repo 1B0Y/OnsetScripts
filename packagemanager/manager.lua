@@ -3,6 +3,7 @@ Package_Manager = {
 }
 
 function Package_Manager.FindPackage(package)
+	_package = false
 	for i, _p in pairs(GetAllPackages()) do
 		if (_p == package) then
 			_package = _p
@@ -10,7 +11,7 @@ function Package_Manager.FindPackage(package)
 		end
 	end
 
-	return package and true or false
+	return _package and true or false
 end
 
 function Package_Manager.Output(player,message)
