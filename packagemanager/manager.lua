@@ -88,6 +88,17 @@ function Package_Manager.Handler(player,package,task)
 		--Server announces package has started anyways.
 	end
 end
+
+AddCommand("pkg", --Requested by Bambo (https://forum.playonset.com/member/255-bambo)
+	function(player,state,package)
+		--Check state of what's passed (start/stop/restart)
+		if state ~= "start" or state ~= "stop" or state ~= "restart" then return AddPlayerChat(player, "USAGE: /pkg <start/stop/restart> <package name>") end
+
+		--Call Package Handler to do the rest
+		return Package_Manager.Handler(player,package,state)
+	end
+)
+
 AddCommand("start", function(player,package) Package_Manager.Handler(player,package,"start") end)
 AddCommand("stop", function(player,package) Package_Manager.Handler(player,package,"stop") end)
 AddCommand("restart", function(player,package) Package_Manager.Handler(player,package,"restart") end)
