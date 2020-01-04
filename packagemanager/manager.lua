@@ -77,15 +77,17 @@ function Package_Manager.Handler(player,package,task)
 		
 		Package_Manager.Output(player, "Restarting "..package..", please wait...")
 		StopPackage(package)
-		if not (StartPackage(package)) then
-			-- Package exist?
-			if (Package_Manager.FindPackage(package)) then
-				return Package_Manager.Output(player, "An error occured while restarting "..package..". Please check server log as it may indicate a script error.")
-			else
-				return Package_Manager.Output(player, "Package "..package.." does not exist.")
+		Delay(500, function( package )
+			if not (StartPackage(package)) then
+				-- Package exist?
+				if (Package_Manager.FindPackage(package)) then
+					return Package_Manager.Output(player, "An error occured while restarting "..package..". Please check server log as it may indicate a script error.")
+				else
+					return Package_Manager.Output(player, "Package "..package.." does not exist.")
+				end
 			end
-		end
-		--Server announces package has started anyways.
+			--Server announces package has started anyways.
+		end , package)
 	end
 end
 
